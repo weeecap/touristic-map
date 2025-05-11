@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.25" />
   <title>Путешествия по Беларуси</title>
-<link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <h1>Путешествия по Беларуси</h1>
 
   <div class="routes">
     <div class="route-card" onclick="openModal('route-1')">
-
       <div class="route-image" style="background-image: url('/image/маршрут1.jpg')"></div>
       <div class="route-overlay">
         <h3>Маршрут 1: Не уезжая далеко</h3>
@@ -22,6 +23,7 @@
         </div>
       </div>
     </div>
+
     <div class="route-card" onclick="openModal('route-2')">
       <div class="route-image" style="background-image: url('/image/маршрут2.jpg')"></div>
       <div class="route-overlay">
@@ -33,6 +35,7 @@
         </div>
       </div>
     </div>
+
     <div class="route-card" onclick="openModal('route-3')">
       <div class="route-image" style="background-image: url('/image/маршрут3.jfif')"></div>
       <div class="route-overlay">
@@ -44,6 +47,7 @@
         </div>
       </div>
     </div>
+
     <div class="route-card" onclick="openModal('route-4')">
       <div class="route-image" style="background-image: url('/image/маршрут4.jfif')"></div>
       <div class="route-overlay">
@@ -56,11 +60,41 @@
       </div>
     </div>
 
+    <div class="route-card" onclick="openModal('route-5')">
+      <div class="route-image" style="background-image: url('image/Дриса Маршрут 5.jpg')"></div>
+      <div class="route-overlay">
+        <h3>Маршрут 5: Сплав по реке Дрисса</h3>
+        <p class="route-description">Сбежать от городской суиты</p>
+        <div class="route-details">
+          <span>Протяжённость: 90 км</span>
+          <span>Время: 5 дней</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-card" onclick="openModal('route-6')">
+      <div class="route-image" style="background-image: url('image/Узлянка_Нарочанка 6 маршрут.webp')"></div>
+      <div class="route-overlay">
+        <h3>Маршрут 6: Сплав по рекам Узлянка-Нарочанка-Вилия</h3>
+        <p class="route-description">Поработать веслами на майские</p>
+        <div class="route-details">
+          <span>Протяжённость: 60 км</span>
+          <span>Время: 3 дня</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="modal-content">
       <span class="close" onclick="closeModal(event)">×</span>
-      <h2 id="route-title">Маршрут</h2>
-      <div id="map" class="map-container"></div>
+      <div class="modal-body">
+        <div class="modal-text">
+          <h2 id="route-title"></h2>
+          <div id="route-description" class="route-description-modal"></div>
+        </div>
+        <div id="map" class="map-container"></div>
+      </div>
     </div>
   </div>
 
@@ -72,34 +106,43 @@
   <script>
     const routes = {
       'route-1': {
-        title: "Маршрут",
-        iframeSrc: "https://www.google.com/maps/d/embed?mid=17hU9ROXK8DKnWU-ATu2A1qWE7_Sz2hY&hl=ru&ehbc=2E312F"
-      },
-      'route-2': {
-        title: "Маршрут",
+        title: "Маршрут 1: Не уезжая далеко",
+        description: 'Родные края — прекрасное место для отдыха. Наслаждайтесь природой и спокойствием.',
         iframeSrc: "https://www.google.com/maps"
       },
+      'route-2': {
+        title: "Маршрут 2: Утраченное наследие",
+        description: 'Это маршрут по живописным пейзажам, через леса и старинные деревни.',
+        iframeSrc: "https://www.google.com/maps/d/embed?mid=17hU9ROXK8DKnWU-ATu2A1qWE7_Sz2hY&hl=ru&ehbc=2E312F"
+      },
       'route-3': {
-        title: "Маршрут",
+        title: "Маршрут 3: Высокие горки",
+        description: 'Пу-Пу-Пу че писать тут — маршрут для любителей приключений и красивых видов.',
         iframeSrc: "https://www.google.com/maps"
       },
       'route-4': {
-        title: "Маршрут",
+        title: "Маршрут 4: Маршрут",
+        description: 'Описание маршрута еще не готово, но скоро будет!',
         iframeSrc: "https://www.google.com/maps"
       },
-      'google-map-1': {
-        title: "Веломаршрут по Беларуси",
-        iframeSrc: "https://www.google.com/maps/d/embed?mid=1234567890&hl=ru&ehbc=2E312F"
+      'route-5': {
+        title: "Маршрут 5: Сплав по реке Дрисса",
+        description: 'Этот маршрут идеально подходит для тех, кто хочет сбежать от городской суеты и насладиться природой.',
+        iframeSrc: "https://www.google.com/maps/d/u/0/embed?mid=1btL7yXOqaLYhhV9nSMndgGzbv14U0fk&ehbc=2E312F"
+      },
+      'route-6': {
+        title: "Маршрут 6: Сплав по рекам Узлянка-Нарочанка-Вилия",
+        description: 'Поработать веслами на майские — отличный способ провести выходные на воде.',
+        iframeSrc: "https://www.google.com/maps/d/u/0/embed?mid=1btL7yXOqaLYhhV9nSMndgGzbv14U0fk&ehbc=2E312F"
       }
     };
 
     function openModal(id) {
       const route = routes[id];
       document.getElementById('route-title').innerText = route.title;
-
+      document.getElementById('route-description').innerText = route.description; // Устанавливаем описание
       const mapContainer = document.getElementById('map');
       mapContainer.innerHTML = `<iframe src="${route.iframeSrc}" allowfullscreen></iframe>`;
-
       document.getElementById('modal').style.display = 'flex';
     }
 
@@ -111,4 +154,5 @@
     }
   </script>
 </body>
+
 </html>

@@ -1,5 +1,4 @@
- 
- body {
+body {
     background: linear-gradient(
       to bottom,
       #ffffff 0%,    /* Верхний цвет */
@@ -9,8 +8,7 @@
     );
     min-height: 100vh;
   }
-
-
+  
   h1 {
     font-size: 100px;
     font-weight: 900; /* 900 вместо bold для лучшего эффекта */
@@ -29,7 +27,7 @@
     max-width: 90%;
     line-height: 0.8; /* Опционально - регулируем межстрочный интервал */
   }
-
+  
   .routes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -104,9 +102,8 @@
     font-size: 0.9rem;
     opacity: 0.9;
   }
-
-  .modal {
   
+  .modal {
     display: none; /* По умолчанию скрыто */
     position: fixed;
     top: 0;
@@ -117,21 +114,22 @@
     justify-content: center;
     align-items: center;
   }
+  
   .modal {
     background: 
       linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
       url(/image/2.jpg) center/cover;
   }
-
+  
   .modal-content {
     background: white;
-    padding: 20px;
+    padding: 40px;  /* Увеличен padding */
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;  /* Увеличена максимальная ширина */
     border-radius: 10px;
     position: relative;
   }
-
+  
   .close {
     position: absolute;
     top: 10px;
@@ -139,27 +137,238 @@
     font-size: 24px;
     cursor: pointer;
   }
-
-  .map-container iframe {
+  
+  .modal-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;  /* Выравнивание по верхнему краю */
     width: 100%;
+  }
+  
+  .modal-text {
+    width: 50%;  /* Увеличена ширина текста */
+    padding-right: 20px; /* Отступ между текстом и картой */
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Убедимся, что контент идет вертикально */
+    justify-content: flex-start; /* Выравнивание содержимого по верхнему краю */
+  }
+  
+  .map-container {
+    width: 50%;  /* Увеличена ширина карты */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  iframe {
+    width: 90%;  /* Карта теперь будет занимать 90% от контейнера */
     height: 480px;
     border: none;
   }
-
+  
   footer {
     text-align: center;
     margin-top: auto;
     padding: 100px 0;
     font-size: 0.9em;
   }
-
+  
   footer a {
     margin: 0 10px;
     color: #000000;
     text-decoration: none;
   }
-
+  
   footer a:hover {
     text-decoration: underline;
-    color: #b5b0b0
+    color: #b5b0b0;
   }
+  body {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,    /* Верхний цвет */
+      #ffffff 50%,   /* Где начинается переход */
+      #ffffff 80%,   /* Нижний цвет */
+      #525252 100%   /* До конца */
+    );
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 100px;
+    font-weight: 900; /* 900 вместо bold для лучшего эффекта */
+    background-image: url('./zBWw9uY2qRE.jpg');
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: block; /* Для h1 обычно не нужно, но на всякий случай */
+    margin: 0 auto; /* Сокращённая запись для margin-left и margin-right */
+    padding: 20px 0; /* Добавляем отступы сверху/снизу */
+    width: fit-content;
+    max-width: 90%;
+    line-height: 0.8; /* Опционально - регулируем межстрочный интервал */
+  }
+  
+  .routes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .route-card {
+    position: relative;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .route-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .route-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .route-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 20px 20px;
+    color: white;
+    background: linear-gradient(
+      to top, 
+      rgba(0, 0, 0, 0.85) 0%, 
+      rgba(0, 0, 0, 0.4) 70%, 
+      transparent 100%
+    );
+  }
+  
+  .route-description {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 18px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .route-details {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .route-card:hover .route-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .route-overlay h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+  }
+  
+  .route-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .modal {
+    display: none; /* По умолчанию скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background: 
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url(/image/2.jpg) center/cover;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 40px;  /* Увеличен padding */
+    width: 90%;
+    height: 70%;
+    max-width: 1000px;  /* Увеличена максимальная ширина */
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;  /* Выравнивание по верхнему краю */
+    width: 100%;
+  }
+  
+  .modal-text {
+    width: 50%;  /* Увеличена ширина текста */
+    padding-right: 20px; /* Отступ между текстом и картой */
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Убедимся, что контент идет вертикально */
+    justify-content: flex-start; /* Выравнивание содержимого по верхнему краю */
+  }
+  
+  .map-container {
+    width: 70%;  /* Увеличена ширина карты */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  iframe {
+    width: 90%;  /* Карта теперь будет занимать 90% от контейнера */
+    height: 550px;
+    border: none;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    font-size: 0.9em;
+  }
+  
+  footer a {
+    margin: 0 10px;
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+    color: #b5b0b0;
+  }
+    
