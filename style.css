@@ -342,15 +342,15 @@ body {
   }
   
   .map-container {
-    width: 70%;  /* Увеличена ширина карты */
+    width: 50%;  /* Увеличена ширина карты */
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   iframe {
-    width: 90%;  /* Карта теперь будет занимать 90% от контейнера */
-    height: 550px;
+    width: 500px;  /* Карта теперь будет занимать 90% от контейнера */
+    height: 475px;
     border: none;
   }
   
