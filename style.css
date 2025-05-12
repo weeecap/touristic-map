@@ -14,6 +14,7 @@
     font-weight: 900;
     background-image: url('image/zBWw9uY2qRE.jpg');
     -webkit-background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
@@ -176,6 +177,9 @@
     padding-right: 10px;
     text-align: justify;
     display: flex;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    hyphens: auto;
     flex-direction: column;
     justify-content: flex-start;
   }
